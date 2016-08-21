@@ -433,6 +433,8 @@ SnapTranslator.dict.pl = {
         'najechany przez kursor myszy',
     'mouse-departed':
         'opuszczony przez kursor myszy',
+	'when %b':
+		'kiedy %b',
     'when I receive %msgHat':
         'kiedy otrzymam %msgHat',
     'broadcast %msg':

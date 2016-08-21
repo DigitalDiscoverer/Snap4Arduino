@@ -1,10 +1,10 @@
 // init decorator
 
 SpriteMorph.prototype.originalInit = SpriteMorph.prototype.init;
-SpriteMorph.prototype.init = function(globals) {
+/*SpriteMorph.prototype.init = function(globals) {
     this.originalInit(globals);
     this.arduino = new Arduino(this);
-};
+};*/
 
 // Definition of a new Arduino Category
 
@@ -158,11 +158,11 @@ SpriteMorph.prototype.initArduinoBlocks = function () {
     StageMorph.prototype.codeMappings['servoWrite'] = '  servo<#1>.write(<#2>);';
     StageMorph.prototype.codeMappings['pwmWrite'] = '  analogWrite(<#1>, <#2>);';
 }
-
+/*
 SpriteMorph.prototype.initBlocks =  function() {
     this.originalInitBlocks();
     this.initArduinoBlocks();
-};
+};*/
 
 SpriteMorph.prototype.initBlocks();
 

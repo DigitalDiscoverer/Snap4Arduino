@@ -625,9 +625,11 @@ IDE_Morph.prototype.createControlBar = function () {
     button.fixLayout();
     button.refresh();
     appModeButton = button;
+	/*
     this.controlBar.add(appModeButton);
     this.controlBar.appModeButton = appModeButton; // for refreshing
-
+	*/
+	
     // stopButton
     button = new ToggleButtonMorph(
         null, // colors
