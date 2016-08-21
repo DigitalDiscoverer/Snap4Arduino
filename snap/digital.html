@@ -41,11 +41,19 @@
 				world.isDevMode = true;
 
                 ide = new IDE_Morph();
+				ide.paletteWidth = 400;
+				ide.userLanguage = "pl";
+				ide.logoURL = ide.resourceURL('digital.png');
+				ide.stageRatio = 0.5;
+				ide.isSmallStage = true;
+				ide.loadNewProject = true;
                 ide.openIn(world);
-				ide.setLanguage("pl");
+				
 				ide.flatDesign();		
-				ide.setBlocksScale(1.2);
-				ide.toggleStageSize(true,0.5);
+				//ide.setBlocksScale(1.5);
+				//ide.toggleStageSize(true,0.5);
+				//ide.setPaletteWidth(700);
+				
 				
 				
 
