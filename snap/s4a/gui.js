@@ -30,6 +30,7 @@ IDE_Morph.prototype.snapMenu = function () {
     menu = new MenuMorph(this);
     menu.addItem('About Snap!...', 'aboutSnap');
     menu.addItem('About Snap4Arduino...', 'aboutSnap4Arduino');
+	menu.addItem('Więcej o Cyfrowy Odkrywca...', 'aboutDigitalInventor');
     menu.addLine();
     menu.addItem(
         'Snap! reference manual',
@@ -639,6 +640,49 @@ IDE_Morph.prototype.aboutSnap4Arduino = function () {
 
     dlg = new DialogBoxMorph();
     dlg.inform('About Snap4Arduino', aboutTxt, world);
+    creditsBtn = dlg.addButton(
+        function () {
+            dlg.body.text = creditsTxt;
+            dlg.body.drawNew();
+            aboutBtn.show();
+            creditsBtn.hide();
+            dlg.fixLayout();
+            dlg.drawNew();
+            dlg.setCenter(world.center());
+        },
+        'Contributions...'
+    );
+    aboutBtn = dlg.addButton(
+        function () {
+            dlg.body.text = aboutTxt;
+            dlg.body.drawNew();
+            aboutBtn.hide();
+            creditsBtn.show();
+            dlg.fixLayout();
+            dlg.drawNew();
+            dlg.setCenter(world.center());
+        },
+        'About Snap4Arduino...'
+    );
+    aboutBtn.hide();
+    dlg.fixLayout();
+    dlg.drawNew();
+};
+
+
+IDE_Morph.prototype.aboutDigitalInventor = function () {
+    var dlg, aboutTxt, creditsTxt, translations,
+    module, aboutBtn, creditsBtn,
+    world = this.world();
+
+    aboutTxt = 'Cyfrowy Odkrywca ' + this.version() +'\n'
+
+    + '\u24B8 2015 Fundacja Netcamp\n'
+    + 'kontakt@netcamp.pl\n\n';
+
+
+    dlg = new DialogBoxMorph();
+    dlg.inform('O Cyfrowy Odkrywca', aboutTxt, world);
     creditsBtn = dlg.addButton(
         function () {
             dlg.body.text = creditsTxt;

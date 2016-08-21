@@ -1,17 +1,17 @@
 {
-  "main": "s4a.html",
-  "name": "Snap4Arduino",
-  "description": "Snap4Arduino",
+  "main": "digital.html",
+  "name": "Cyfrowy Odkrywca",
+  "description": "Aplikacja wspomagająca sterowanie zestawem Inteligentne Miasto",
   "window": {
-    "title": "Snap4Arduino",
-    "icon": "s4a/icon-128.png",
+    "title": "Cyfrowy Odkrywca",
+    "icon": "s4a/digital_inventer/digital.png",
     "toolbar": false,
     "frame": true,
-    "position": "mouse",
+    "position": "center",
     "width": 960,
     "height": 640,
     "min_width": 960,
-    "min_height": 640
+    "min_height": 640,
   },
   "dependencies": {
     "firmata": "~0.3.3",
