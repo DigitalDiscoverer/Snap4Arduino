@@ -1,4 +1,4 @@
-// init decorator
+﻿// init decorator
 
 SpriteMorph.prototype.originalInit = SpriteMorph.prototype.init;
 SpriteMorph.prototype.init = function(globals) {
@@ -42,6 +42,11 @@ SpriteMorph.prototype.blockColor['Szlaban'] = new Color(64, 10, 120);
 //Czujnik najazdu
 SpriteMorph.prototype.categories.push('Czujnik najazdu');
 SpriteMorph.prototype.blockColor['Czujnik najazdu'] = new Color(82, 70, 10);
+
+//Lampa
+SpriteMorph.prototype.categories.push('Lampa');
+SpriteMorph.prototype.blockColor['Lampa'] = new Color(120, 136, 10);
+
 
 //Rower miejski
 SpriteMorph.prototype.categories.push('Rower miejski');
