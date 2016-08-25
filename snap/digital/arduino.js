@@ -10,7 +10,7 @@ Arduino.getSerialPorts = function (callback) {
     chrome.serial.getDevices(function (devices) { 
         if (devices) { 
             devices.forEach(function (device) { 
-                if (!myself.isPortLocked(device.path) && portcheck.test(device.path)) {
+                if (device.displayName && !myself.isPortLocked(device.path) && portcheck.test(device.path)) {
                     if(device.displayName.indexOf("Arduino") !== -1)
 						portList[device.path] = device.path; 
                 }
