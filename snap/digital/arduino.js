@@ -1,5 +1,5 @@
 ﻿/**
- * Gets a list of available serial ports (paths) and return it through callback function
+ * Nadpisana funkcja poszukujaca portow COM - filtruje wyłącznie po układach kompatybilnych z zestawem
  */
 
 Arduino.getSerialPorts = function (callback) {

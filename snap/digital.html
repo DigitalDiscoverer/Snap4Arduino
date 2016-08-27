@@ -51,9 +51,6 @@
 				ide.openIn(world);
 				
 				ide.flatDesign();	
-				
-				
-				
 
                 ide.inform = function(title, message, callback) { 
                     var myself = this;
@@ -76,7 +73,7 @@
             };
 
             require('nw.gui').Window.get().on('close', function () {
-                if (confirm('Are you sure you want to leave?')) {
+                if (confirm('Czy na pewno chcesz zakończyć zabawę?')) {
                     this.close(true);
                 } 
             });
