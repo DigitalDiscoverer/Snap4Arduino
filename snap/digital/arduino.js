@@ -12,9 +12,20 @@ Arduino.getSerialPorts = function (callback) {
             devices.forEach(function (device) { 
                 if (device.displayName && !myself.isPortLocked(device.path) && portcheck.test(device.path)) {
                     if(device.displayName.indexOf("Arduino") !== -1)
-						portList[device.path] = device.path; 
+					{
+						portList[device.path] = device.displayName; 
+					}	
                 }
             });
+			if (Object.keys(portList).length == 0)
+			{
+				//zrob przeszukanie bez pominiecia arduino
+				devices.forEach(function (device) { 
+					if (device.displayName && !myself.isPortLocked(device.path) && portcheck.test(device.path)) {
+						portList[device.path] = device.displayName; 
+					}
+				});
+			}
         }
         callback(portList);
     });
