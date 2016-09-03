@@ -11,23 +11,31 @@ Arduino.getSerialPorts = function (callback) {
         if (devices) { 
             devices.forEach(function (device) { 
                 if (device.displayName && !myself.isPortLocked(device.path) && portcheck.test(device.path)) {
-                    if(device.displayName.indexOf("Arduino") !== -1)
-					{
-						portList[device.path] = device.displayName; 
-					}	
+                    if ((device.displayName.indexOf("Arduino") !== -1) || (device.displayName.indexOf("Bluetooth") !== -1))
+						portList[device.path] = device.displayName.replace("Arduino Uno", "Inteligentne Miasto") + ' (' + device.path + ')'; 
                 }
             });
-			if (Object.keys(portList).length == 0)
-			{
-				//zrob przeszukanie bez pominiecia arduino
-				devices.forEach(function (device) { 
-					if (device.displayName && !myself.isPortLocked(device.path) && portcheck.test(device.path)) {
-						portList[device.path] = device.displayName; 
-					}
-				});
-			}
+			
         }
         callback(portList);
     });
     
+};
+
+//sprawdza czy plytka jest podlaczona - na BT za czesto rozlacza wiec wylaczamy jej dzialanie
+Arduino.prototype.keepAlive = function () {
+    if (Arduino.keepAlive) {
+        if (this.board.version.major !== undefined) {
+            // Everything looks fine, let's try again
+            this.board.version = {};
+            try {
+                this.board.reportVersion(nop);
+            } catch (err) {
+                this.disconnect();
+            }
+        } else {
+            // Connection dropped! Let's disconnect!
+            //this.disconnect(); 
+        }
+    }
 };

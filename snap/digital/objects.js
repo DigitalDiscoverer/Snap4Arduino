@@ -20,9 +20,7 @@ SpriteMorph.prototype.init = function(globals) {
         'lists',
         'other'*/
 SpriteMorph.prototype.categories.splice(0,1); //usun MOTION
-SpriteMorph.prototype.categories.splice(2,1); //usun  Czucie 
-SpriteMorph.prototype.categories.splice(2,1); //usun  Glosy
-SpriteMorph.prototype.categories.splice(3,1); //usun  Pen 
+SpriteMorph.prototype.categories.splice(5,1); //usun  Pen 
 
 //Sygnalizator drogowy
 SpriteMorph.prototype.categories.push('Sygn. drogowy');
