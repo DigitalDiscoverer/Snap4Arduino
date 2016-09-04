@@ -7,9 +7,9 @@ IDE_Morph.prototype.init = function (globals) {
     var myself = this;
 
     if (this.httpServer) { this.httpServer.close() };
-    this.httpServer = require('http').createServer(function(request, response) { myself.handleHTTPRequest(request, response) });
+/*    this.httpServer = require('http').createServer(function(request, response) { myself.handleHTTPRequest(request, response) });
     this.httpServer.setTimeout(500);
-
+*/
     this.isServerOn = false;
 };
 
