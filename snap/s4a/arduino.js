@@ -429,7 +429,7 @@ Arduino.isPortLocked = function (port) {
 
 Arduino.getSerialPorts = function (callback) {
     var myself = this,
-        portList = [],
+        portList = [];
     
 	bluetoothSerial.list(function(list){
         	list.forEach(function(device){
