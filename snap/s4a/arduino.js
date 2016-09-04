@@ -388,7 +388,7 @@ Arduino.prototype.pinsSettableToMode = function (aMode) {
 
 // Class attributes and methods
 
-Arduino.firmata = {};//require('firmata');
+Arduino.firmata = Firmata;//require('firmata');
 Arduino.portList = [];
 Arduino.usedPorts = [];
 
