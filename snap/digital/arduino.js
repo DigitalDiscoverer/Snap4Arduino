@@ -12,7 +12,8 @@ Arduino.getSerialPorts = function (callback) {
             devices.forEach(function (device) { 
                 if (device.displayName && !myself.isPortLocked(device.path) && portcheck.test(device.path)) {
                     if ((device.displayName.indexOf("Arduino") !== -1) || (device.displayName.indexOf("Bluetooth") !== -1))
-						portList[device.path] = device.displayName.replace("Arduino Uno", "Inteligentne Miasto") + ' (' + device.path + ')'; 
+						portList[device.path] = device.displayName.replace("Arduino Uno", "Inteligentne Miasto").replace("USB-SERIAL CH340", "Inteligentne Miasto")
+													+ ' (' + device.path + ')'; 
                 }
             });
 			
