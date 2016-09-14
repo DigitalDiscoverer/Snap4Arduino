@@ -458,6 +458,8 @@ IDE_Morph.prototype.projectMenu = function () {
         },
         'file menu import hint' // looks up the actual text in the translator
     );
+	
+	
 
     menu.addItem(
         shiftClicked ?
