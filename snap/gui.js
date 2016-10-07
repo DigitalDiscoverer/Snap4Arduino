@@ -3793,7 +3793,7 @@ IDE_Morph.prototype.openBlocksString = function (str, name, silently) {
         myself = this;
     this.nextSteps([
         function () {
-            msg = myself.showMessage('Opening blocks...');
+            msg = myself.showMessage(localize('Opening blocks...'));
         },
         function () {nop(); }, // yield (bug in Chrome)
         function () {
@@ -3827,7 +3827,7 @@ IDE_Morph.prototype.rawOpenBlocksString = function (str, name, silently) {
         this.flushPaletteCache();
         this.refreshPalette();
         this.showMessage(
-            'Imported Blocks Module' + (name ? ': ' + name : '') + '.',
+            localize('Imported Blocks Module') + (name ? ': ' + name : '') + '.',
             2
         );
     } else {
