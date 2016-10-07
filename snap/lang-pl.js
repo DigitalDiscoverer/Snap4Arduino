@@ -972,6 +972,11 @@ SnapTranslator.dict.pl = {
         'Zapisywanie projektu\ndo chmury...',
     'saved.':
         'Projekt zapisany.',
+	
+	'Opening blocks...':
+		'Wczytywanie klocków sterowania, jeszcze chwila...',
+	'Imported Blocks Module':
+		'Moduły klocków wczytane',
 
     // costume editor
     'Costume Editor':
@@ -995,11 +1000,11 @@ SnapTranslator.dict.pl = {
 
     // export blocks
     'Export blocks':
-        'Eksportuj bloki',
+        'Eksportuj klocki',
     'Import blocks':
-        'Importuj bloki',
+        'Importuj klocki',
     'this project doesn\'t have any\ncustom global blocks yet':
-        'ten projekt nie ma jeszcze\nw\u0142asnych globalnych blok\u00F3w',
+        'ten projekt nie ma jeszcze\nw\u0142asnych globalnych klock\u00F3w',
     'select':
         'wybierz',
     'all':
@@ -1015,7 +1020,7 @@ SnapTranslator.dict.pl = {
 
     // block dialog
     'Change block':
-        'Zmie\u0144 blok',
+        'Zmie\u0144 klocek',
     'Command':
         'Komenda',
     'Reporter':
@@ -1025,15 +1030,15 @@ SnapTranslator.dict.pl = {
 
     // block editor
     'Block Editor':
-        'Edytor blok\u00F3w',
+        'Edytor klock\u00F3w',
     'Apply':
         'Zastosuj',
 
     // block deletion dialog
     'Delete Custom Block':
-        'Usu\u0144 w\u0142asny blok',
+        'Usu\u0144 w\u0142asny klocek',
     'block deletion dialog text':
-        'czy ten blok ze wszystkimi wyst\u0105pieniami\n' +
+        'czy ten klocek ze wszystkimi wyst\u0105pieniami\n' +
             'rzeczywi\u015Bcie usun\u0105\u0107?',
 
     // input dialog

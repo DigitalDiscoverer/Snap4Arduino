@@ -149,7 +149,10 @@ s4aTempDict = {
         'Zestaw nie jest podlaczony',
 
     'New Arduino translatable project':
-        'Nowy projekt dedykowany Arduino' 
+        'Nowy projekt dedykowany Arduino',
+	
+	'Turn on the lamp in eco mode':
+		'Włącz lampę w trybie eco'
 
 };
 
