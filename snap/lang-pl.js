@@ -204,6 +204,16 @@ SnapTranslator.dict.pl = {
         'Ruch',
     'Looks':
         'Wygl\u0105d',
+	'Traffic lights':
+		'Sygn. drogowa',
+	'Rail crossing':
+		'Przejazd kolejowy',
+	'Lamp':
+		'Oświetlenie uliczne',
+	'City bike':
+		'Rower miejski',
+	'Crossing lights':
+		'Sygn. dla pieszych',
     'Sound':
         'D\u017Awi\u0119k',
     'Pen':
@@ -290,6 +300,8 @@ SnapTranslator.dict.pl = {
         without breaking its functionality.
     */
 
+	'Turn on the lamp in eco mode':
+		'włacz w tryb eco',
     // motion:
     'Stage selected:\nno motion primitives':
         'Wybrana scena\nnie ma blok\u00F3w ruchu',

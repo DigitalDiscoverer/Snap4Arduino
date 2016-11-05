@@ -149,7 +149,7 @@ isSnapObject, copy, PushButtonMorph, SpriteIconMorph*/
 
 // Global stuff ////////////////////////////////////////////////////////
 
-modules.blocks = '2016-July-06';
+modules.blocks = '2016-July-15';
 
 var SyntaxElementMorph;
 var BlockMorph;
@@ -3775,7 +3775,7 @@ CommandBlockMorph.prototype.closestAttachTarget = function (newParent) {
             }
         );
     }
-    if (!this.isStop()) {
+    if (!bottomBlock.isStop()) {
         ref.push(
             {
                 point: bottomBlock.bottomAttachPoint(),
@@ -8705,6 +8705,12 @@ SymbolMorph.prototype.names = [
     'rectangleSolid',
     'circle',
     'circleSolid',
+	'swiatloCzerwonePelne',
+	'swiatloCzerwone',
+	'swiatloZoltePelne',
+	'swiatloZolte',
+	'swiatloZielonePelne',
+	'swiatloZielone',
     'line',
     'crosshairs',
     'paintbucket',
@@ -8745,7 +8751,12 @@ SymbolMorph.prototype.init = function (
 
     SymbolMorph.uber.init.call(this, true); // silently
     this.color = color || new Color(0, 0, 0);
-    this.drawNew();
+	this.colorRed = new Color(255, 0, 0);
+	this.colorYellow = new Color(255, 255, 97);
+	this.colorGreen = new Color(0, 255, 0);
+	
+	this.drawNew();
+	
 };
 
 // SymbolMorph zebra coloring:
@@ -8852,6 +8863,18 @@ SymbolMorph.prototype.symbolCanvasColored = function (aColor) {
         return this.drawSymbolCircle(canvas, aColor);
     case 'circleSolid':
         return this.drawSymbolCircleSolid(canvas, aColor);
+	case 'swiatloCzerwonePelne':
+        return this.drawSymbolCircleSolid(canvas, this.colorRed);
+    case 'swiatloCzerwone':
+        return this.drawSymbolCircle(canvas, this.colorRed);
+	case 'swiatloZoltePelne':
+        return this.drawSymbolCircleSolid(canvas, this.colorYellow);
+    case 'swiatloZolte':
+        return this.drawSymbolCircle(canvas, this.colorYellow);
+	case 'swiatloZielonePelne':
+        return this.drawSymbolCircleSolid(canvas, this.colorGreen);
+    case 'swiatloZielone':
+        return this.drawSymbolCircle(canvas, this.colorGreen);
     case 'line':
         return this.drawSymbolLine(canvas, aColor);
     case 'crosshairs':
@@ -11584,6 +11607,7 @@ CommentMorph.prototype.init = function (contents) {
         new Color(255, 255, 180)
     );
     this.color = new Color(255, 255, 220);
+	
     this.isDraggable = true;
     this.add(this.titleBar);
     this.add(this.arrow);
@@ -12110,7 +12134,7 @@ ScriptFocusMorph.prototype.deleteLastElement = function () {
 };
 
 ScriptFocusMorph.prototype.insertBlock = function (block) {
-    var pb;
+    var pb, stage, ide;
     block.isTemplate = false;
     block.isDraggable = true;
 
@@ -12173,6 +12197,21 @@ ScriptFocusMorph.prototype.insertBlock = function (block) {
     this.editor.adjustBounds();
     // block.scrollIntoView();
     this.fixLayout();
+
+    // register generic hat blocks
+    if (block.selector === 'receiveCondition') {
+        if (this.editor.owner) {
+            stage = this.editor.owner.parentThatIsA(StageMorph);
+            if (stage) {
+                stage.enableCustomHatBlocks = true;
+                stage.threads.pauseCustomHatBlocks = false;
+                ide = stage.parentThatIsA(IDE_Morph);
+                if (ide) {
+                    ide.controlBar.stopButton.refresh();
+                }
+            }
+        }
+    }
 };
 
 ScriptFocusMorph.prototype.insertVariableGetter = function () {

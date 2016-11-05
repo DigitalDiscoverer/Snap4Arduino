@@ -73,7 +73,7 @@ StageMorph, isNil*/
 
 // Global stuff ////////////////////////////////////////////////////////
 
-modules.paint = '2016-May-10';
+modules.paint = '2016-July-14';
 
 // Declarations
 
@@ -181,7 +181,9 @@ PaintEditorMorph.prototype.buildToolbox = function () {
                 "Filled Rectangle\n(shift: square)",
             circleSolid:
                 "Filled Ellipse\n(shift: circle)",
-            paintbucket:
+            swiatloCzerwonePelne:
+				"Światło czerwone",
+			paintbucket:
                 "Fill a region",
             pipette:
                 "Pipette tool\n(pick a color anywhere)"
@@ -897,6 +899,7 @@ PaintCanvasMorph.prototype.mouseMove = function (pos) {
         mctx.stroke();
         break;
     case "circle":
+	case "swiatloCzerwonePelne":
     case "circleSolid":
         mctx.beginPath();
         if (this.isShiftPressed()) {
@@ -929,7 +932,7 @@ PaintCanvasMorph.prototype.mouseMove = function (pos) {
             }
         }
         mctx.closePath();
-        if (this.currentTool === "circleSolid") {
+        if (this.currentTool === "circleSolid" || this.currentTool === "swiatloCzerwonePelne") {
             mctx.fill();
         } else {
             if (this.currentTool === "circle") {

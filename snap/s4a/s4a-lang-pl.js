@@ -102,6 +102,9 @@ s4aTempDict = {
 
     'disconnect arduino':
         'rozłącz Zestaw',
+	
+	'Turn on the lamp in eco mode':
+		'Włącz lampę w trybie eco',
 
     'setup digital pin %digitalPin as %pinMode':
         'setup digital pin %digitalPin as %pinMode',
@@ -149,10 +152,7 @@ s4aTempDict = {
         'Zestaw nie jest podlaczony',
 
     'New Arduino translatable project':
-        'Nowy projekt dedykowany Arduino',
-	
-	'Turn on the lamp in eco mode':
-		'Włącz lampę w trybie eco'
+        'Nowy projekt dedykowany Arduino'	
 
 };
 

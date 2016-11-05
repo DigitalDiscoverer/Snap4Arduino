@@ -117,6 +117,7 @@ SpriteMorph.uber = PenMorph.prototype;
 SpriteMorph.prototype.categories =
     [
         'motion',
+		'start',
         'control',
         'looks',
         'sensing',
@@ -133,7 +134,8 @@ SpriteMorph.prototype.blockColor = {
     looks : new Color(143, 86, 227),
     sound : new Color(207, 74, 217),
     pen : new Color(0, 161, 120),
-    control : new Color(230, 168, 34),
+    start : new Color(230, 168, 34),
+	control : new Color(230, 168, 34),
     sensing : new Color(4, 148, 220),
     operators : new Color(98, 194, 19),
     variables : new Color(243, 118, 29),
@@ -541,12 +543,12 @@ SpriteMorph.prototype.initBlocks = function () {
         // Control
         receiveGo: {
             type: 'hat',
-            category: 'control',
+            category: 'start',
             spec: 'when %greenflag clicked'
         },
         receiveKey: {
             type: 'hat',
-            category: 'control',
+            category: 'start',
             spec: 'when %keyHat key pressed'
         },
 
@@ -561,18 +563,18 @@ SpriteMorph.prototype.initBlocks = function () {
 
         receiveInteraction: {
             type: 'hat',
-            category: 'control',
+            category: 'start',
             spec: 'when I am %interaction',
             defaults: ['clicked']
         },
         receiveMessage: {
             type: 'hat',
-            category: 'control',
+            category: 'start',
             spec: 'when I receive %msgHat'
         },
         receiveCondition: {
             type: 'hat',
-            category: 'control',
+            category: 'start',
             spec: 'when %b'
         },
         doBroadcast: {
@@ -1871,13 +1873,31 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(block('doStamp'));
         blocks.push(block('floodFill'));
 
-    } else if (cat === 'control') {
-
-        blocks.push(block('receiveGo'));
+	} else if (cat == 'start') {
+		blocks.push(block('receiveGo'));
         blocks.push(block('receiveKey'));
         blocks.push(block('receiveInteraction'));
         blocks.push(block('receiveCondition'));
         blocks.push(block('receiveMessage'));
+		blocks.push('-'); 
+		blocks.push(block('doStopThis'));
+        blocks.push(block('doStopOthers'));
+		blocks.push('-'); 
+		blocks.push(block('doRun'));
+        
+    } else if (cat === 'control') {
+
+        
+        //blocks.push('-');
+		blocks.push(block('doWait'));
+        blocks.push(block('doWaitUntil'));
+        blocks.push('-');
+		blocks.push(block('doIf'));
+        blocks.push(block('doIfElse'));
+        blocks.push('-');
+		blocks.push(block('doForever'));
+        blocks.push(block('doRepeat'));
+        blocks.push(block('doUntil'));
         blocks.push('-');
         blocks.push(block('doBroadcast'));
         blocks.push(block('doBroadcastAndWait'));
@@ -1885,16 +1905,6 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(block('getLastMessage'));
         blocks.push('-');
         blocks.push(block('doWarp'));
-        blocks.push('-');
-        blocks.push(block('doWait'));
-        blocks.push(block('doWaitUntil'));
-        blocks.push('-');
-        blocks.push(block('doForever'));
-        blocks.push(block('doRepeat'));
-        blocks.push(block('doUntil'));
-        blocks.push('-');
-        blocks.push(block('doIf'));
-        blocks.push(block('doIfElse'));
         blocks.push('-');
         blocks.push(block('doReport'));
         blocks.push('-');
@@ -1904,10 +1914,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(block('doStop'));
         blocks.push(block('doStopAll'));
     */
-        blocks.push(block('doStopThis'));
-        blocks.push(block('doStopOthers'));
-        blocks.push('-');
-        blocks.push(block('doRun'));
+        
+        
         blocks.push(block('fork'));
         blocks.push(block('evaluate'));
         blocks.push('-');
