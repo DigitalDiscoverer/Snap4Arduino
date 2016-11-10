@@ -10,11 +10,17 @@ Arduino.getSerialPorts = function (callback) {
     chrome.serial.getDevices(function (devices) { 
         if (devices) { 
             devices.forEach(function (device) { 
-                portList[device.path] = 
+				if (device.displayName) {
+					portList[device.path] = 
 								device.displayName.replace("Arduino Uno", "Inteligentne Miasto").replace("USB-SERIAL CH340", "Inteligentne Miasto")
 								+ ' (' + device.path + ')';
+				}
             });
 			
+        }
+		if (Object.keys(portList).length === 0)
+        {
+        	portList["BRAK"] = "Podłącz zestaw do urządzenia";
         }
         callback(portList);
     });

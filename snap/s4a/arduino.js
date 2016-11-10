@@ -117,7 +117,11 @@ Arduino.prototype.attemptConnection = function () {
                 if (networkPortsEnabled || portCount > 1) {
                     portMenu.popUpAtHand(world);
                 } else if (!networkPortsEnabled && portCount === 1) {
-                    myself.connect(Object.keys(ports)[0]);
+					if (ports.hasOwnProperty("BRAK")) {
+						ide.inform(myself.name, "Mam wrażenie, że zestaw nie jest podłączony do komputera : (");
+					} else {
+						myself.connect(Object.keys(ports)[0]);
+					}
                 }
             });
         } else {

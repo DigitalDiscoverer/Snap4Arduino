@@ -21,7 +21,7 @@ SpriteMorph.prototype.init = function(globals) {
         'lists',
         'other'*/
 SpriteMorph.prototype.categories.splice(0,1); //usun MOTION
-SpriteMorph.prototype.categories.splice(5,1); //usun  Pen 
+SpriteMorph.prototype.categories.splice(6,1); //usun  Pen 
 
 //Sygnalizator drogowy
 SpriteMorph.prototype.categories.push('Traffic lights');
@@ -49,8 +49,8 @@ SpriteMorph.prototype.blockColor['Lamp'] = new Color(22, 153, 163);
 
 
 //Rower miejski
-SpriteMorph.prototype.categories.push('City bike');
-SpriteMorph.prototype.blockColor['City bike'] = new Color(83, 137, 200);
+//SpriteMorph.prototype.categories.push('City bike');
+//SpriteMorph.prototype.blockColor['City bike'] = new Color(83, 137, 200);
 
 
 
